@@ -1,8 +1,8 @@
 #!/bin/bash
 set -ex
 
-sudo /usr/sbin/mysqld --user=mysql &
+mysqld_safe &
 sleep 10
-echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '' WITH GRANT OPTION; FLUSH PRIVILEGES;" | mysql -u root -h 127.0.0.1
+mysql -e 'GRANT ALL PRIVILEGES ON *.* TO "root"@"%" WITH GRANT OPTION;' -u root
 mysqladmin -u root -h 127.0.0.1 shutdown
 
