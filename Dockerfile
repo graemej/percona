@@ -9,6 +9,10 @@ RUN \
 
 ADD my.cnf /etc/mysql/my.cnf
 
+ADD create-users.sh /usr/local/bin/create-users.sh
+
+RUN /usr/local/bin/create-users.sh
+
 # Define default command.
 CMD ["mysqld_safe"]
 
