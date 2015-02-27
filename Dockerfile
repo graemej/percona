@@ -7,6 +7,8 @@ RUN \
   apt-get update && \
   apt-get install -y percona-server-server-5.6 percona-server-client-5.6 percona-toolkit percona-xtrabackup
 
+ADD my.cnf /etc/mysql/my.cnf
+
 # Define default command.
 CMD ["mysqld_safe"]
 
